@@ -19,5 +19,9 @@
   "homepage": "https://github.com/gurugu-fcc-projects/FCC__d3-bar-chart#readme",
   "dependencies": {
     "d3": "^5.15.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   }
 }
