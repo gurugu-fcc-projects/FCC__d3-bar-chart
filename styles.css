@@ -6,3 +6,11 @@ body {
   color: #fff;
   text-align: center;
 }
+
+.high {
+  text-decoration: underline;
+}
+
+.bar {
+  background-color: rgb(53, 53, 221);
+}
