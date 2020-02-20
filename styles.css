@@ -1,4 +1,5 @@
 body {
+  overflow-x: scroll;
   background-color: palevioletred;
 }
 
@@ -12,5 +13,7 @@ body {
 }
 
 .bar {
+  display: inline-block;
+  width: 2px;
   background-color: rgb(53, 53, 221);
 }
