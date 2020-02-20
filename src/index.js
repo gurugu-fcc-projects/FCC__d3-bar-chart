@@ -3,7 +3,6 @@ const dataUrl =
 
 d3.json(dataUrl)
   .then(({ data }) => {
-    console.log(data);
     d3.select("#main")
       .selectAll("div")
       .data(data)
@@ -18,6 +17,6 @@ d3.json(dataUrl)
       // })
       // .attr("class", d => (d[1] > 1000 ? "high" : ""));
       .attr("class", "bar")
-      .style("height", d => `${d[1]}px`);
+      .style("height", d => `${d[1] * 5}px`);
   })
   .catch(err => console.error(err));
