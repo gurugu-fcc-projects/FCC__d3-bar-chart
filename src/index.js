@@ -22,16 +22,18 @@ d3.json(dataUrl)
       .attr("x", (d, i) => i * 3)
       .attr("y", (d, i) => h - d[1] / 3)
       .attr("width", 2)
-      .attr("height", (d, i) => d[1] / 3);
-    // .text(d => `${d[0]} --- ${d[1]}`)
-    // .style("font-family", "vardana")
-    // .style("color", d => {
-    //   const year = d[0].split("-")[0];
+      .attr("height", (d, i) => d[1] / 3)
+      .attr("fill", "rgb(53, 53, 221)");
 
-    //   return year > 1960 ? "mediumspringgreen" : "azure";
-    // })
-    // .attr("class", d => (d[1] > 1000 ? "high" : ""));
-    // .attr("class", "bar")
-    // .style("height", d => `${d[1] * 5}px`);
+    svg
+      .selectAll("text")
+      .data(data)
+      .enter()
+      .append("text")
+      .attr("x", (d, i) => i * 3)
+      .attr("y", (d, i) => h - 20 - d[1] / 3)
+      .attr("fill", "white")
+      .attr("font-size", 6)
+      .text(d => d[0]);
   })
   .catch(err => console.error(err));
