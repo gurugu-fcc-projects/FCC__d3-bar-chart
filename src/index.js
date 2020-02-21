@@ -20,9 +20,9 @@ d3.json(dataUrl)
       .enter()
       .append("rect")
       .attr("x", (d, i) => i * 3)
-      .attr("y", 0)
+      .attr("y", (d, i) => h - d[1] / 3)
       .attr("width", 2)
-      .attr("height", (d, i) => d[1]);
+      .attr("height", (d, i) => d[1] / 3);
     // .text(d => `${d[0]} --- ${d[1]}`)
     // .style("font-family", "vardana")
     // .style("color", d => {
