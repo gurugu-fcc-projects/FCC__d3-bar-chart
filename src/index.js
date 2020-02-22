@@ -2,7 +2,7 @@ const dataUrl =
   "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json";
 
 const w = 600;
-const h = 1000;
+const h = 800;
 
 const svg = d3
   .select("#main")
@@ -12,7 +12,12 @@ const svg = d3
 
 d3.json(dataUrl)
   .then(({ data }) => {
-    console.log(data);
+    // console.log(data);
+
+    const max = d3.max(data, d => d[1]);
+    const min = d3.min(data, d => d[1]);
+
+    console.log(min, max);
 
     svg
       .selectAll("rect")
