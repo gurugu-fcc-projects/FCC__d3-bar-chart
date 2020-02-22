@@ -13,7 +13,21 @@ body {
 }
 
 .bar {
-  display: inline-block;
-  width: 2px;
-  background-color: rgb(53, 53, 221);
+  fill: rgb(53, 53, 221);
+  cursor: pointer;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.bar-text {
+  font-size: 6px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  fill: #fff;
+  opacity: 0;
+}
+
+.bar:hover + .bar-text {
+  opacity: 1;
 }
