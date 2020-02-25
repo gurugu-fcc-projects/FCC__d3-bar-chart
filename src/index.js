@@ -1,8 +1,8 @@
 const dataUrl =
   "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json";
 
-const w = 600;
-const h = 800;
+const w = 500;
+const h = 400;
 
 const svg = d3
   .select("#main")
@@ -17,17 +17,20 @@ d3.json(dataUrl)
     const max = d3.max(data, d => d[1]);
     const min = d3.min(data, d => d[1]);
 
-    console.log(min, max);
+    const yScale = d3
+      .scaleLinear()
+      .domain([0, max])
+      .range([0, h]);
 
     svg
       .selectAll("rect")
       .data(data)
       .enter()
       .append("rect")
-      .attr("x", (d, i) => i * 3)
-      .attr("y", (d, i) => h - d[1] / 3)
-      .attr("width", 3)
-      .attr("height", (d, i) => d[1] / 3)
+      .attr("x", (d, i) => i * 1.5)
+      .attr("y", (d, i) => h - yScale(d[1]))
+      .attr("width", 1.5)
+      .attr("height", (d, i) => yScale(d[1]))
       .attr("class", "bar")
       .append("title")
       .text(d => d[1]);
