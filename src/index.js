@@ -13,17 +13,24 @@ const svg = d3
 
 d3.json(dataUrl)
   .then(({ data }) => {
-    // console.log(data);
-
-    const max = d3.max(data, d => d[1]);
-    // const min = d3.min(data, d => d[1]);
+    const maxGDP = d3.max(data, d => d[1]);
+    // const years = data.map(datum => Number(datum[0].split("-")[0]));
+    const years = data.map(datum => new Date(datum[0].split("-")[0]));
+    const minYear = d3.min(years, year => year);
+    const maxYear = d3.max(years, year => year);
 
     const yScale = d3
       .scaleLinear()
-      .domain([0, max])
+      .domain([0, maxGDP])
       .range([h - padding, padding]);
 
+    const xScale = d3
+      .scaleLinear()
+      .domain([minYear, maxYear])
+      .range([padding, w - padding]);
+
     const yAxis = d3.axisLeft(yScale);
+    const xAxis = d3.axisBottom(xScale).tickFormat(d3.timeFormat("%Y"));
 
     svg
       .selectAll("rect")
@@ -52,7 +59,12 @@ d3.json(dataUrl)
 
     svg
       .append("g")
-      .attr("transform", `translate(${padding - 5}, 0)`)
+      .attr("transform", `translate(${padding}, 0)`)
       .call(yAxis);
+
+    svg
+      .append("g")
+      .attr("transform", `translate(0, ${h - padding})`)
+      .call(xAxis);
   })
   .catch(err => console.error(err));
