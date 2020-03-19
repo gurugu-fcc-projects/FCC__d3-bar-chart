@@ -8,6 +8,12 @@ body {
   text-align: center;
 }
 
+.main {
+  height: 500px;
+  width: 800px;
+  padding: 40px;
+}
+
 .high {
   text-decoration: underline;
 }
