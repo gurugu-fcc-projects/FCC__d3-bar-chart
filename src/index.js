@@ -28,7 +28,7 @@ const yAxis = d3
   .ticks(10);
 
 const svg = d3
-  .select(".main")
+  .select(".chart")
   .append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
@@ -50,7 +50,7 @@ d3.json(dataUrl)
 
     svg
       .append("g")
-      .attr("class", "x axis")
+      .attr("id", "x-axis")
       .attr("transform", `translate(0, ${height})`)
       .call(xAxis.ticks(null).tickSize(0))
       .selectAll("text")
@@ -61,7 +61,7 @@ d3.json(dataUrl)
 
     svg
       .append("g")
-      .attr("class", "y axis")
+      .attr("id", "y-axis")
       .call(yAxis.ticks(null).tickSize(0));
     // .append("text")
     // .attr("transform", "rotate(-90)")
