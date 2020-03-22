@@ -26,11 +26,10 @@ const svg = d3
 d3.json(dataUrl)
   .then(({ data }) => {
     data.forEach(d => {
-      d[0] = parseDate(d[0]);
       d[1] = +d[1];
     });
 
-    xScale.domain(d3.extent(data, d => d[0]));
+    xScale.domain(d3.extent(data, d => parseDate(d[0])));
     yScale.domain([0, d3.max(data, d => d[1])]);
 
     const barWidth = width / data.length;
@@ -54,7 +53,7 @@ d3.json(dataUrl)
       .data(data)
       .enter()
       .append("rect")
-      .attr("x", d => xScale(d[0]))
+      .attr("x", d => xScale(parseDate(d[0])))
       .attr("width", barWidth)
       .attr("y", d => yScale(d[1]))
       .attr("height", d => height - yScale(d[1]))
