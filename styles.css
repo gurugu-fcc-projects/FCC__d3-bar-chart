@@ -17,7 +17,8 @@ body {
   margin-bottom: 2rem;
 }
 
-.main {
+.chart {
+  position: relative;
 }
 
 .bar {
@@ -38,4 +39,12 @@ body {
 
 .bar:hover + .bar-text {
   opacity: 1;
+}
+
+#tooltip {
+  position: absolute;
+  /* display: block; */
+  /* height: 100px;
+  width: 100px; */
+  background-color: blueviolet;
 }
