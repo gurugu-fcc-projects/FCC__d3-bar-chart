@@ -10,8 +10,8 @@ const parseDate = d3.isoParse;
 const xScale = d3.scaleTime().rangeRound([0, width]);
 const yScale = d3.scaleLinear().range([height, 0]);
 
-const xAxis = d3.axisBottom().scale(xScale);
-const yAxis = d3.axisLeft().scale(yScale);
+const xAxisCall = d3.axisBottom().scale(xScale);
+const yAxisCall = d3.axisLeft().scale(yScale);
 
 const svg = d3
   .select(".chart")
@@ -35,17 +35,32 @@ d3.json(dataUrl)
     const barWidth = width / data.length;
 
     //--> X Axis
-    svgGroup
+    const xAxis = svgGroup
       .append("g")
       .attr("id", "x-axis")
       .attr("transform", `translate(0, ${height})`)
-      .call(xAxis.ticks(null).tickSize(0));
+      .call(xAxisCall.ticks(null).tickSize(0));
 
     //--> Y Axis
-    svgGroup
+    const yAxis = svgGroup
       .append("g")
       .attr("id", "y-axis")
-      .call(yAxis.ticks(null).tickSize(0));
+      .call(yAxisCall.ticks(null).tickSize(0));
+
+    //--> Labels
+    svg
+      .append("text")
+      .attr("class", "axis-title")
+      .attr("x", width / 2 + 20)
+      .attr("y", height + 60)
+      .text("Date");
+    svg
+      .append("text")
+      .attr("class", "axis-title")
+      .attr("x", -290)
+      .attr("y", 80)
+      .attr("transform", "rotate(-90)")
+      .text("Gross Domestic Product / millions");
 
     //--> Add tooltip
     const tooltip = d3

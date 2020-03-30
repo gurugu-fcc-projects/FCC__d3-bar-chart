@@ -41,6 +41,11 @@ body {
   opacity: 1;
 }
 
+.axis-title {
+  font-size: 1.2rem;
+  color: #000;
+}
+
 #tooltip {
   position: absolute;
   /* display: block; */
