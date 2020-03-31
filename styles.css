@@ -47,6 +47,11 @@ body {
   color: #000;
 }
 
+#y-axis text,
+#x-axis text {
+  font-size: 0.8rem;
+}
+
 #tooltip {
   position: absolute;
   /* display: block; */
