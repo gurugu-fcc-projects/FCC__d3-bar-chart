@@ -8,18 +8,18 @@ const height = 400 - margin.top - margin.bottom;
 const parseDate = d3.isoParse;
 
 const xScale = d3.scaleTime().rangeRound([0, width]);
+
 const yScale = d3.scaleLinear().range([height, 0]);
 
-const xAxisCall = d3.axisBottom().scale(xScale);
-const yAxisCall = d3.axisLeft().scale(yScale);
+const xAxis = d3.axisBottom().scale(xScale);
+
+const yAxis = d3.axisLeft().scale(yScale);
 
 const svg = d3
   .select(".chart")
   .append("svg")
   .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom);
-
-const svgGroup = svg
+  .attr("height", height + margin.top + margin.bottom)
   .append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
@@ -35,32 +35,17 @@ d3.json(dataUrl)
     const barWidth = width / data.length;
 
     //--> X Axis
-    const xAxis = svgGroup
+    svg
       .append("g")
       .attr("id", "x-axis")
       .attr("transform", `translate(0, ${height})`)
-      .call(xAxisCall.ticks(null).tickSize(0));
+      .call(xAxis.ticks(null).tickSize(0));
 
     //--> Y Axis
-    const yAxis = svgGroup
+    svg
       .append("g")
       .attr("id", "y-axis")
-      .call(yAxisCall.ticks(null).tickSize(0));
-
-    //--> Labels
-    svg
-      .append("text")
-      .attr("class", "axis-title")
-      .attr("x", width / 2 + 20)
-      .attr("y", height + 60)
-      .text("Date");
-    svg
-      .append("text")
-      .attr("class", "axis-title")
-      .attr("x", -290)
-      .attr("y", 80)
-      .attr("transform", "rotate(-90)")
-      .text("Gross Domestic Product / millions");
+      .call(yAxis.ticks(null).tickSize(0));
 
     //--> Add tooltip
     const tooltip = d3
@@ -77,9 +62,9 @@ d3.json(dataUrl)
       .style("opacity", 0);
 
     //--> Plot main data
-    const bars = svgGroup.selectAll("bar").data(data);
-
-    bars
+    svg
+      .selectAll("bar")
+      .data(data)
       .enter()
       .append("rect")
       .attr("x", d => xScale(parseDate(d[0])))
