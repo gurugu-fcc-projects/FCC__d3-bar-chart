@@ -39,13 +39,13 @@ d3.json(dataUrl)
       .append("g")
       .attr("id", "x-axis")
       .attr("transform", `translate(0, ${height})`)
-      .call(xAxis.ticks(null).tickSize(0));
+      .call(xAxis.ticks(null).tickSize(10, 10, 0));
 
     //--> Y Axis
     svg
       .append("g")
       .attr("id", "y-axis")
-      .call(yAxis.ticks(null).tickSize(0));
+      .call(yAxis.ticks(null).tickSize(10, 10, 0));
 
     //--> Add tooltip
     const tooltip = d3
