@@ -19,13 +19,26 @@
 }
 
 body {
-  height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
   /* background-color: rgb(218, 218, 218); */
   background-color: rgb(44, 44, 44);
   color: rgb(245, 245, 245);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.footer {
+  padding: 10px;
 }
 
 #title {
