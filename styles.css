@@ -8,6 +8,12 @@
 }
 
 :root {
+  --original-bg-color: rgb(44, 44, 44);
+  --original-font-color: rgb(245, 245, 245);
+  --original-bar-color: rgb(53, 53, 221);
+  --original-bar-hover: brown;
+  --original-tooltip-bg: blueviolet;
+
   --dark-primary-color: #512da8;
   --light-primary-color: #d1c4e9;
   --primary-color: #673ab7;
@@ -24,9 +30,8 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /* background-color: rgb(218, 218, 218); */
-  background-color: rgb(44, 44, 44);
-  color: rgb(245, 245, 245);
+  background-color: var(--original-bg-color);
+  color: var(--original-font-color);
 }
 
 .content {
@@ -39,6 +44,7 @@ body {
 
 .footer {
   padding: 10px;
+  background-color: var(--dark-primary-color);
 }
 
 #title {
@@ -51,18 +57,16 @@ body {
 }
 
 .bar {
-  fill: rgb(53, 53, 221);
+  fill: var(--original-bar-color);
   cursor: pointer;
 }
 
 .bar:hover {
-  fill: brown;
+  fill: var(--original-bar-hover);
 }
 
 .bar-text {
   font-size: 6px;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  fill: #fff;
   opacity: 0;
 }
 
@@ -72,7 +76,6 @@ body {
 
 .axis-title {
   font-size: 1.2rem;
-  color: #000;
 }
 
 #y-axis text,
@@ -85,5 +88,5 @@ body {
   /* display: block; */
   /* height: 100px;
   width: 100px; */
-  background-color: blueviolet;
+  background-color: var(--original-tooltip-bg);
 }
