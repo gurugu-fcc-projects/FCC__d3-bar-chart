@@ -70,13 +70,6 @@ d3.json(dataUrl)
       .attr("id", "tooltip")
       .style("opacity", 0);
 
-    //--> Add tooltip overlay
-    const overlay = d3
-      .select(".chart")
-      .append("div")
-      .attr("class", "overlay")
-      .style("opacity", 0);
-
     //--> Plot main data
     svg
       .selectAll("bar")
@@ -91,36 +84,21 @@ d3.json(dataUrl)
       .attr("data-gdp", d => d[1])
       .attr("class", "bar")
       .on("mouseover", (d, idx) => {
-        overlay
-          .transition()
-          .duration(0)
-          .style("height", d + "px")
-          .style("width", barWidth + "px")
-          .style("opacity", 0.9)
-          .style("left", idx * barWidth + 0 + "px")
-          .style("top", height - d + "px")
-          .style("transform", "translateX(60px)");
         tooltip
           .transition()
           .duration(200)
           .attr("data-date", data[idx][0])
           .style("opacity", 0.9)
           .style("left", idx * barWidth + 30 + "px")
-          .style("top", height - 100 + "px")
+          .style("top", height - 130 + "px")
           .style("transform", "translateX(60px)");
-        tooltip.html(`<p>${parseDate(d[0])}</p>`);
+        tooltip.html(`<div>${d[0]}</div><div>$${d[1]}M</div>`);
       })
       .on("mouseout", d => {
         tooltip
           .transition()
           .duration(200)
           .style("opacity", 0);
-        overlay
-          .transition()
-          .duration(200)
-          .style("opacity", 0);
       });
-
-    //--> Show tooltip
   })
   .catch(err => console.error(err));

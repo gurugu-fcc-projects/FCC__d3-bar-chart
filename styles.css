@@ -13,6 +13,7 @@
   --original-bar-color: rgb(53, 53, 221);
   --original-bar-hover: brown;
   --original-tooltip-bg: blueviolet;
+  --original-axis-color: palevioletred;
 
   --dark-primary-color: #512da8;
   --light-primary-color: #d1c4e9;
@@ -75,33 +76,38 @@ body {
 }
 
 .axis-label {
-  stroke: palevioletred;
+  stroke: var(--original-axis-color);
   stroke-width: 1px;
 }
 
 #y-axis text,
 #x-axis text {
   font-size: 0.8rem;
-  color: palevioletred;
+  color: var(--original-axis-color);
 }
 
 #y-axis path,
 #x-axis path {
-  stroke: palevioletred;
+  stroke: var(--original-axis-color);
   stroke-width: 3px;
 }
 
 #y-axis line,
 #x-axis line {
-  fill: palevioletred;
-  stroke: palevioletred;
+  fill: var(--original-axis-color);
+  stroke: var(--original-axis-color);
   stroke-width: 3px;
 }
 
 #tooltip {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: absolute;
-  /* display: block; */
-  height: 100px;
-  min-width: 200px;
+  height: 90px;
+  min-width: 140px;
+  padding: 20px;
+  border-radius: 10px;
   background-color: var(--original-tooltip-bg);
+  pointer-events: none;
 }
