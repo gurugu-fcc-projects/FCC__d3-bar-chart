@@ -47,6 +47,22 @@ d3.json(dataUrl)
       .attr("id", "y-axis")
       .call(yAxis.ticks(null).tickSize(10, 10, 0));
 
+    //--> Axis labels
+    svg
+      .append("text")
+      .attr("class", "axis-label")
+      .attr("transform", "rotate(-90)")
+      .attr("x", -130)
+      .attr("y", 30)
+      .text("GDP (in millions)");
+
+    svg
+      .append("text")
+      .attr("class", "axis-label")
+      .attr("x", width / 2 - 20)
+      .attr("y", height + 50)
+      .text("Year");
+
     //--> Add tooltip
     const tooltip = d3
       .select(".chart")

@@ -74,8 +74,9 @@ body {
   opacity: 1;
 }
 
-.axis-title {
-  font-size: 1.2rem;
+.axis-label {
+  stroke: palevioletred;
+  stroke-width: 1px;
 }
 
 #y-axis text,
