@@ -38,6 +38,7 @@ d3.json(dataUrl)
     svg
       .append("g")
       .attr("id", "x-axis")
+      .attr("class", "axis")
       .attr("transform", `translate(0, ${height})`)
       .call(xAxis.ticks(null).tickSize(10, 10, 0));
 
@@ -45,6 +46,7 @@ d3.json(dataUrl)
     svg
       .append("g")
       .attr("id", "y-axis")
+      .attr("class", "axis")
       .call(yAxis.ticks(null).tickSize(10, 10, 0));
 
     //--> Axis labels
@@ -92,7 +94,7 @@ d3.json(dataUrl)
           .style("left", idx * barWidth + 30 + "px")
           .style("top", height - 130 + "px")
           .style("transform", "translateX(60px)");
-        tooltip.html(`<div>${d[0]}</div><div>$${d[1]}M</div>`);
+        tooltip.html(`<div>${d[0]}</div><div>$${d[1]} billions</div>`);
       })
       .on("mouseout", d => {
         tooltip

@@ -9,7 +9,7 @@
 
 :root {
   --original-bg-color: rgb(44, 44, 44);
-  --original-font-color: rgb(245, 245, 245);
+  --original-text-color: rgb(245, 245, 245);
   --original-bar-color: rgb(53, 53, 221);
   --original-bar-hover: brown;
   --original-tooltip-bg: blueviolet;
@@ -32,7 +32,7 @@ body {
   align-items: center;
   min-height: 100vh;
   background-color: var(--original-bg-color);
-  color: var(--original-font-color);
+  color: var(--original-text-color);
 }
 
 .content {
@@ -76,26 +76,23 @@ body {
 }
 
 .axis-label {
-  stroke: var(--original-axis-color);
+  stroke: var(--original-text-color);
   stroke-width: 1px;
 }
 
-#y-axis text,
-#x-axis text {
+.axis text {
   font-size: 0.8rem;
-  color: var(--original-axis-color);
+  /* color: var(--original-axis-color); */
 }
 
-#y-axis path,
-#x-axis path {
-  stroke: var(--original-axis-color);
+.axis path {
+  /* stroke: var(--original-axis-color); */
   stroke-width: 3px;
 }
 
-#y-axis line,
-#x-axis line {
-  fill: var(--original-axis-color);
-  stroke: var(--original-axis-color);
+.axis line {
+  /* fill: var(--original-axis-color); */
+  /* stroke: var(--original-axis-color); */
   stroke-width: 3px;
 }
 
