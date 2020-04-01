@@ -81,12 +81,26 @@ body {
 #y-axis text,
 #x-axis text {
   font-size: 0.8rem;
+  color: palevioletred;
+}
+
+#y-axis path,
+#x-axis path {
+  stroke: palevioletred;
+  stroke-width: 3px;
+}
+
+#y-axis line,
+#x-axis line {
+  fill: palevioletred;
+  stroke: palevioletred;
+  stroke-width: 3px;
 }
 
 #tooltip {
   position: absolute;
   /* display: block; */
-  /* height: 100px;
-  width: 100px; */
+  height: 100px;
+  min-width: 200px;
   background-color: var(--original-tooltip-bg);
 }
