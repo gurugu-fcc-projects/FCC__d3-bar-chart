@@ -6,7 +6,7 @@ FreeCodeCamp Data Visualization Project. See project requirements at [this freec
 
 ## Demo
 
-![](https://github.com/gurugumawaru/FCC__d3-bar-chart/blob/master/fcc__d3_bar_chart.gif)
+![](https://github.com/gurugu-fcc-projects/FCC__d3-bar-chart/blob/master/fcc__d3_bar_chart.gif)
 
 ## Features
 
