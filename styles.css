@@ -9,7 +9,7 @@
 
 :root {
   --original-bg-color: rgb(44, 44, 44);
-  --original-footer-color: rgb(75, 75, 75);
+  --original-footer-color: rgb(65, 61, 61);
   --original-text-color: rgb(245, 245, 245);
   --original-bar-color: rgb(53, 53, 221);
   --original-bar-hover: brown;
@@ -19,7 +19,8 @@
   --dark-primary-color: #512da8;
   /* --light-primary-color: #d1c4e9; */
   --light-primary-color: #a39fc5;
-  --primary-color: #673ab7;
+  /* --primary-color: #673ab7; */
+  --primary-color: #5714ca;
   --text-icons: #ffffff;
   --accent-color: #ff5252;
   --primary-text: #212121;
@@ -88,7 +89,7 @@ body {
 }
 
 .axis text {
-  /* font-size: 0.8rem; */
+  font-size: 0.8rem;
   color: var(--original-axis-color);
 }
 
