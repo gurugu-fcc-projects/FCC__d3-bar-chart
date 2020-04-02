@@ -70,7 +70,9 @@ d3.json(dataUrl)
       .select(".chart")
       .append("div")
       .attr("id", "tooltip")
-      .style("opacity", 0);
+      .style("opacity", 0)
+      .style("left", `${width / 2}px`)
+      .style("top", `${height / 2}px`);
 
     //--> Plot main data
     svg

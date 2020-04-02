@@ -23,7 +23,8 @@
   /* --primary-color: #5714ca; */
   --primary-color: #3b1085;
   --text-icons: #ffffff;
-  --accent-color: #ff5252;
+  /* --accent-color: #ff5252; */
+  --accent-color: #cf4545;
   --primary-text: #212121;
   --secondary-text: #757575;
   --divider-color: #bdbdbd;
@@ -49,7 +50,7 @@ body {
 
 .footer {
   padding: 10px;
-  width: 100vw;
+  width: 100%;
   text-align: center;
   font-size: 0.8rem;
   color: rgb(226, 210, 210);
@@ -116,7 +117,7 @@ body {
   min-width: 180px;
   padding: 20px;
   border-radius: 10px;
-  color: var(--text-icons);
+  color: rgb(236, 227, 227);
   background-color: var(--accent-color);
   pointer-events: none;
 }
