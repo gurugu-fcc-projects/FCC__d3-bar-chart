@@ -23,6 +23,32 @@ const svg = d3
   .append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
+//--> Y axis label
+svg
+  .append("text")
+  .attr("class", "axis-label")
+  .attr("transform", "rotate(-90)")
+  .attr("x", -130)
+  .attr("y", 30)
+  .text("GDP (in millions)");
+
+//--> X axis label
+svg
+  .append("text")
+  .attr("class", "axis-label")
+  .attr("x", width / 2 - 20)
+  .attr("y", height + 50)
+  .text("Year");
+
+//--> Add tooltip
+const tooltip = d3
+  .select(".chart")
+  .append("div")
+  .attr("id", "tooltip")
+  .style("opacity", 0)
+  .style("left", `${width / 2}px`)
+  .style("top", `${height / 2}px`);
+
 d3.json(dataUrl)
   .then(({ data }) => {
     data.forEach(d => {
@@ -48,31 +74,6 @@ d3.json(dataUrl)
       .attr("id", "y-axis")
       .attr("class", "axis")
       .call(yAxis.ticks(null).tickSize(10, 10, 0));
-
-    //--> Axis labels
-    svg
-      .append("text")
-      .attr("class", "axis-label")
-      .attr("transform", "rotate(-90)")
-      .attr("x", -130)
-      .attr("y", 30)
-      .text("GDP (in millions)");
-
-    svg
-      .append("text")
-      .attr("class", "axis-label")
-      .attr("x", width / 2 - 20)
-      .attr("y", height + 50)
-      .text("Year");
-
-    //--> Add tooltip
-    const tooltip = d3
-      .select(".chart")
-      .append("div")
-      .attr("id", "tooltip")
-      .style("opacity", 0)
-      .style("left", `${width / 2}px`)
-      .style("top", `${height / 2}px`);
 
     //--> Plot main data
     svg
