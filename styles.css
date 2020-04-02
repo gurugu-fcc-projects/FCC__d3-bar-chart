@@ -4,13 +4,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Gotu", sans-serif;
+  font-family: "Kanit", sans-serif;
 }
 
 :root {
   --original-bg-color: rgb(44, 44, 44);
   --original-footer-color: rgb(65, 61, 61);
-  --original-text-color: rgb(245, 245, 245);
+  /* --original-text-color: rgb(245, 245, 245); */
+  --original-text-color: rgb(224, 215, 215);
+  --original-text-2-color: rgb(212, 186, 186);
   --original-bar-color: rgb(53, 53, 221);
   --original-bar-hover: brown;
   --original-tooltip-bg: blueviolet;
@@ -23,8 +25,8 @@
   /* --primary-color: #5714ca; */
   --primary-color: #3b1085;
   --text-icons: #ffffff;
-  /* --accent-color: #ff5252; */
-  --accent-color: #cf4545;
+  --accent-color: #ff5252;
+  /* --accent-color: #cf4545; */
   --primary-text: #212121;
   --secondary-text: #757575;
   --divider-color: #bdbdbd;
@@ -54,7 +56,7 @@ body {
   width: 100%;
   text-align: center;
   font-size: 0.8rem;
-  color: rgb(226, 210, 210);
+  color: var(--original-text-2-color);
   background-color: var(--original-footer-color);
 }
 
@@ -62,8 +64,8 @@ body {
   text-align: center;
   margin-bottom: 2rem;
   font-size: 2.4rem;
-  color: rgb(226, 210, 210);
-}
+  color: var(--original-text-color);
+/}
 
 .chart {
   position: relative;
@@ -71,11 +73,14 @@ body {
 
 .bar {
   fill: var(--primary-color);
+  fill: var(--original-text-color);
+  fill: var(--accent-color);
   cursor: pointer;
 }
 
 .bar:hover {
-  fill: var(--accent-color);
+  /* fill: var(--accent-color); */
+  fill: var(--original-footer-color);
 }
 
 .bar-text {
@@ -89,24 +94,32 @@ body {
 
 .axis-label {
   stroke: var(--original-axis-color);
-  /* stroke-width: 1px; */
-  /* font-weight: 800; */
+  stroke: rgb(204, 105, 105);
+  stroke: var(--original-text-2-color);
+  font-weight: 200;
 }
 
 .axis text {
-  font-size: 0.8rem;
+  /* font-size: 0.8rem; */
   color: var(--original-axis-color);
+  font-weight: 200;
+  stroke: rgb(204, 105, 105);
+  stroke: var(--original-text-2-color);
 }
 
 .axis path {
   stroke: var(--original-axis-color);
-  stroke-width: 2px;
+  stroke: rgb(204, 105, 105);
+  stroke: var(--original-text-2-color);
+  /* stroke-width: 2px; */
 }
 
 .axis line {
-  fill: var(--original-axis-color);
+  /* fill: var(--original-axis-color); */
   stroke: var(--original-axis-color);
-  stroke-width: 2px;
+  stroke: rgb(204, 105, 105);
+  stroke: var(--original-text-2-color);
+  /* stroke-width: 2px; */
 }
 
 #tooltip {
@@ -119,6 +132,8 @@ body {
   padding: 20px;
   border-radius: 10px;
   color: rgb(236, 227, 227);
-  background-color: var(--accent-color);
+  color: var(--original-text-color);
+  /* background-color: var(--accent-color); */
+  background-color: var(--original-footer-color);
   pointer-events: none;
 }
