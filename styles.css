@@ -9,6 +9,7 @@
 
 :root {
   --original-bg-color: rgb(44, 44, 44);
+  --original-footer-color: rgb(75, 75, 75);
   --original-text-color: rgb(245, 245, 245);
   --original-bar-color: rgb(53, 53, 221);
   --original-bar-hover: brown;
@@ -16,7 +17,8 @@
   --original-axis-color: palevioletred;
 
   --dark-primary-color: #512da8;
-  --light-primary-color: #d1c4e9;
+  /* --light-primary-color: #d1c4e9; */
+  --light-primary-color: #a39fc5;
   --primary-color: #673ab7;
   --text-icons: #ffffff;
   --accent-color: #ff5252;
@@ -45,12 +47,16 @@ body {
 
 .footer {
   padding: 10px;
-  background-color: var(--dark-primary-color);
+  width: 100vw;
+  text-align: center;
+  color: rgb(226, 210, 210);
+  background-color: var(--original-footer-color);
 }
 
 #title {
   text-align: center;
   margin-bottom: 2rem;
+  color: rgb(226, 210, 210);
 }
 
 .chart {
@@ -58,12 +64,12 @@ body {
 }
 
 .bar {
-  fill: var(--original-bar-color);
+  fill: var(--primary-color);
   cursor: pointer;
 }
 
 .bar:hover {
-  fill: var(--original-bar-hover);
+  fill: var(--accent-color);
 }
 
 .bar-text {
@@ -76,24 +82,25 @@ body {
 }
 
 .axis-label {
-  stroke: var(--original-text-color);
-  stroke-width: 1px;
+  stroke: var(--original-axis-color);
+  /* stroke-width: 1px; */
+  /* font-weight: 800; */
 }
 
 .axis text {
-  font-size: 0.8rem;
-  /* color: var(--original-axis-color); */
+  /* font-size: 0.8rem; */
+  color: var(--original-axis-color);
 }
 
 .axis path {
-  /* stroke: var(--original-axis-color); */
-  stroke-width: 3px;
+  stroke: var(--original-axis-color);
+  stroke-width: 2px;
 }
 
 .axis line {
-  /* fill: var(--original-axis-color); */
-  /* stroke: var(--original-axis-color); */
-  stroke-width: 3px;
+  fill: var(--original-axis-color);
+  stroke: var(--original-axis-color);
+  stroke-width: 2px;
 }
 
 #tooltip {
@@ -105,6 +112,7 @@ body {
   min-width: 140px;
   padding: 20px;
   border-radius: 10px;
-  background-color: var(--original-tooltip-bg);
+  color: var(--text-icons);
+  background-color: var(--accent-color);
   pointer-events: none;
 }
