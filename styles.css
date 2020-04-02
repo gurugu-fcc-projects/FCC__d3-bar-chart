@@ -8,29 +8,12 @@
 }
 
 :root {
-  --original-bg-color: rgb(44, 44, 44);
-  --original-footer-color: rgb(65, 61, 61);
-  /* --original-text-color: rgb(245, 245, 245); */
-  --original-text-color: rgb(224, 215, 215);
-  --original-text-2-color: rgb(212, 186, 186);
-  --original-bar-color: rgb(53, 53, 221);
-  --original-bar-hover: brown;
-  --original-tooltip-bg: blueviolet;
-  --original-axis-color: palevioletred;
-
-  --dark-primary-color: #512da8;
-  /* --light-primary-color: #d1c4e9; */
-  --light-primary-color: #a39fc5;
-  /* --primary-color: #673ab7; */
-  /* --primary-color: #5714ca; */
-  --primary-color: #3b1085;
-  --text-icons: #ffffff;
-  /* --accent-color: #ff5252; */
-  --accent-color: #40929c;
-  --accent-color-hover: #9ee3ec;
-  --primary-text: #212121;
-  --secondary-text: #757575;
-  --divider-color: #bdbdbd;
+  --bg-color: rgb(44, 44, 44);
+  --bg-color-2: rgb(65, 61, 61);
+  --text-color: rgb(240, 240, 240);
+  --text-color-2: rgb(212, 186, 186);
+  --bar-color: #0a7e8d;
+  --bar-color-hover: #9ee3ec;
 }
 
 body {
@@ -39,8 +22,8 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: var(--original-bg-color);
-  color: var(--original-text-color);
+  color: var(--text-color);
+  background-color: var(--bg-color);
   overflow: hidden;
 }
 
@@ -57,32 +40,28 @@ body {
   width: 100%;
   text-align: center;
   font-size: 0.8rem;
-  color: var(--original-text-2-color);
-  background-color: var(--original-footer-color);
+  color: var(--text-color-2);
+  background-color: var(--bg-color-2);
 }
 
 #title {
   text-align: center;
   margin-bottom: 2rem;
   font-size: 2.4rem;
-  color: var(--original-text-color);
-/}
+  color: var(--text-color);
+}
 
 .chart {
   position: relative;
 }
 
 .bar {
-  fill: var(--primary-color);
-  fill: var(--original-text-color);
-  fill: var(--accent-color);
+  fill: var(--bar-color);
   cursor: pointer;
 }
 
 .bar:hover {
-  /* fill: var(--accent-color); */
-  fill: var(--original-footer-color);
-  fill: var(--accent-color-hover);
+  fill: var(--bar-color-hover);
 }
 
 .bar-text {
@@ -95,33 +74,18 @@ body {
 }
 
 .axis-label {
-  stroke: var(--original-axis-color);
-  stroke: rgb(204, 105, 105);
-  stroke: var(--original-text-2-color);
-  font-weight: 200;
+  stroke: var(--text-color-2);
+  font-weight: 100;
+}
+
+.axis text,
+.axis path,
+.axis line {
+  stroke: var(--text-color-2);
 }
 
 .axis text {
-  /* font-size: 0.8rem; */
-  color: var(--original-axis-color);
-  font-weight: 200;
-  stroke: rgb(204, 105, 105);
-  stroke: var(--original-text-2-color);
-}
-
-.axis path {
-  stroke: var(--original-axis-color);
-  stroke: rgb(204, 105, 105);
-  stroke: var(--original-text-2-color);
-  /* stroke-width: 2px; */
-}
-
-.axis line {
-  /* fill: var(--original-axis-color); */
-  stroke: var(--original-axis-color);
-  stroke: rgb(204, 105, 105);
-  stroke: var(--original-text-2-color);
-  /* stroke-width: 2px; */
+  font-weight: 100;
 }
 
 #tooltip {
@@ -133,9 +97,7 @@ body {
   min-width: 180px;
   padding: 20px;
   border-radius: 10px;
-  color: rgb(236, 227, 227);
-  color: var(--original-text-color);
-  /* background-color: var(--accent-color); */
-  background-color: var(--original-footer-color);
+  color: var(--text-color);
+  background-color: var(--bg-color-2);
   pointer-events: none;
 }
