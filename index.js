@@ -40,6 +40,12 @@ svg
   .attr("y", height + 50)
   .text("Year");
 
+//--> Horizontal grid
+// svg
+//   .append("g")
+//   .attr("class", "h-grid")
+//   .call(d3.axisLeft().scale(yScale).tickSize(-width, 0, 0).tickFormat(""));
+
 //--> Add tooltip
 const tooltip = d3
   .select(".chart")
@@ -51,12 +57,12 @@ const tooltip = d3
 
 d3.json(dataUrl)
   .then(({ data }) => {
-    data.forEach(d => {
+    data.forEach((d) => {
       d[1] = +d[1];
     });
 
-    xScale.domain(d3.extent(data, d => parseDate(d[0])));
-    yScale.domain([0, d3.max(data, d => d[1])]);
+    xScale.domain(d3.extent(data, (d) => parseDate(d[0])));
+    yScale.domain([0, d3.max(data, (d) => d[1])]);
 
     const barWidth = width / data.length;
 
@@ -81,12 +87,12 @@ d3.json(dataUrl)
       .data(data)
       .enter()
       .append("rect")
-      .attr("x", d => xScale(parseDate(d[0])))
+      .attr("x", (d) => xScale(parseDate(d[0])))
       .attr("width", barWidth + 1)
-      .attr("y", d => yScale(d[1]))
-      .attr("height", d => height - yScale(d[1]))
-      .attr("data-date", d => d[0])
-      .attr("data-gdp", d => d[1])
+      .attr("y", (d) => yScale(d[1]))
+      .attr("height", (d) => height - yScale(d[1]))
+      .attr("data-date", (d) => d[0])
+      .attr("data-gdp", (d) => d[1])
       .attr("class", "bar")
       .on("mouseover", (d, idx) => {
         tooltip
@@ -99,11 +105,8 @@ d3.json(dataUrl)
           .style("transform", "translateX(60px)");
         tooltip.html(`<div>${d[0]}</div><div>$${d[1]} billions</div>`);
       })
-      .on("mouseout", d => {
-        tooltip
-          .transition()
-          .duration(200)
-          .style("opacity", 0);
+      .on("mouseout", (d) => {
+        tooltip.transition().duration(200).style("opacity", 0);
       });
   })
-  .catch(err => console.error(err));
+  .catch((err) => console.error(err));
