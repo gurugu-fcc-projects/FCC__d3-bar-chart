@@ -55,6 +55,21 @@ const tooltip = d3
   .style("left", `${width / 2}px`)
   .style("top", `${height / 2}px`);
 
+//--> Show tooltip
+const showTooltip = d => {
+  tooltip
+    .attr("data-date", d[0])
+    .style("opacity", 0.9)
+    .style("left", `${d3.event.pageX}px`)
+    .style("top", `${height - 130}px`)
+    .style("transform", "translateX(-80px)")
+    .html(`<div>${d[0]}</div><div>$${d[1]} billions</div>`);
+};
+
+//--> Hide tooltip
+const hideTooltip = () => tooltip.style("opacity", 0);
+
+//--> Load data
 d3.json(dataUrl)
   .then(({ data }) => {
     data.forEach(d => {
@@ -98,17 +113,7 @@ d3.json(dataUrl)
       .attr("data-date", d => d[0])
       .attr("data-gdp", d => d[1])
       .attr("class", "bar")
-      .on("mouseover", (d, idx) => {
-        tooltip
-          .attr("data-date", d[0])
-          .style("opacity", 0.9)
-          .style("left", `${idx * barWidth}px`)
-          .style("top", `${height - 130}px`)
-          .style("transform", "translateX(90px)")
-          .html(`<div>${d[0]}</div><div>$${d[1]} billions</div>`);
-      })
-      .on("mouseout", d => {
-        tooltip.style("opacity", 0);
-      });
+      .on("mouseover", showTooltip)
+      .on("mouseout", hideTooltip);
   })
   .catch(err => console.error(err));
