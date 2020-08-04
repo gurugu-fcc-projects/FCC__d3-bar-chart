@@ -8,11 +8,11 @@ const height = 400 - margin.top - margin.bottom;
 const parseDate = d3.isoParse;
 
 const xScale = d3.scaleTime().rangeRound([0, width]);
-
+// const xScale = d3.scaleTime().range([0, width]);
+//--> I see no difference between rangeRound() and range()
 const yScale = d3.scaleLinear().range([height, 0]);
 
 const xAxis = d3.axisBottom().scale(xScale);
-
 const yAxis = d3.axisLeft().scale(yScale);
 
 const svg = d3
@@ -73,6 +73,10 @@ d3.json(dataUrl)
       .attr("class", "axis")
       .attr("transform", `translate(0, ${height})`)
       .call(xAxis.ticks(null).tickSize(10, 10, 0));
+    // .call(xAxis.ticks(d3.timeYear.every(5)).tickSize(10, 10, 0));
+    /* 
+    interesting that both ticks(null) and ticks(d3.timeYear.every(5)) give the same result 
+    */
 
     //--> Y Axis
     svg
@@ -98,10 +102,10 @@ d3.json(dataUrl)
         tooltip
           .attr("data-date", data[idx][0])
           .style("opacity", 0.9)
-          .style("left", idx * barWidth + 30 + "px")
-          .style("top", height - 130 + "px")
-          .style("transform", "translateX(60px)");
-        tooltip.html(`<div>${d[0]}</div><div>$${d[1]} billions</div>`);
+          .style("left", `${idx * barWidth}px`)
+          .style("top", `${height - 130}px`)
+          .style("transform", "translateX(90px)")
+          .html(`<div>${d[0]}</div><div>$${d[1]} billions</div>`);
       })
       .on("mouseout", d => {
         tooltip.style("opacity", 0);
