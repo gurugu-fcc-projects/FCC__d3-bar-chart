@@ -100,7 +100,7 @@ d3.json(dataUrl)
       .attr("class", "bar")
       .on("mouseover", (d, idx) => {
         tooltip
-          .attr("data-date", data[idx][0])
+          .attr("data-date", d[0])
           .style("opacity", 0.9)
           .style("left", `${idx * barWidth}px`)
           .style("top", `${height - 130}px`)
