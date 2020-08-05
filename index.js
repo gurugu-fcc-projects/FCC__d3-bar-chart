@@ -14,6 +14,9 @@ const yScale = d3.scaleLinear().range([height, 0]);
 
 const xAxis = d3.axisBottom(xScale).ticks(null).tickSize(10, 10, 0);
 const yAxis = d3.axisLeft(yScale).ticks(null).tickSize(10, 10, 0);
+/* 
+  interesting that both ticks(null) and ticks(d3.timeYear.every(5)) give the same result 
+*/
 
 const svg = d3
   .select(".chart")
@@ -88,10 +91,6 @@ d3.json(dataUrl)
       .attr("class", "axis")
       .attr("transform", `translate(0, ${height})`)
       .call(xAxis);
-    // .call(xAxis.ticks(d3.timeYear.every(5)).tickSize(10, 10, 0));
-    /* 
-    interesting that both ticks(null) and ticks(d3.timeYear.every(5)) give the same result 
-    */
 
     //--> Y Axis
     svg.append("g").attr("id", "y-axis").attr("class", "axis").call(yAxis);
