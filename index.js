@@ -12,8 +12,8 @@ const xScale = d3.scaleTime().rangeRound([0, width]);
 //--> I see no difference between rangeRound() and range()
 const yScale = d3.scaleLinear().range([height, 0]);
 
-const xAxis = d3.axisBottom().scale(xScale);
-const yAxis = d3.axisLeft().scale(yScale);
+const xAxis = d3.axisBottom(xScale).ticks(null).tickSize(10, 10, 0);
+const yAxis = d3.axisLeft(yScale).ticks(null).tickSize(10, 10, 0);
 
 const svg = d3
   .select(".chart")
@@ -87,18 +87,14 @@ d3.json(dataUrl)
       .attr("id", "x-axis")
       .attr("class", "axis")
       .attr("transform", `translate(0, ${height})`)
-      .call(xAxis.ticks(null).tickSize(10, 10, 0));
+      .call(xAxis);
     // .call(xAxis.ticks(d3.timeYear.every(5)).tickSize(10, 10, 0));
     /* 
     interesting that both ticks(null) and ticks(d3.timeYear.every(5)) give the same result 
     */
 
     //--> Y Axis
-    svg
-      .append("g")
-      .attr("id", "y-axis")
-      .attr("class", "axis")
-      .call(yAxis.ticks(null).tickSize(10, 10, 0));
+    svg.append("g").attr("id", "y-axis").attr("class", "axis").call(yAxis);
 
     //--> Plot main data
     svg
