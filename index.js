@@ -77,8 +77,8 @@ d3.json(dataUrl)
       d[1] = +d[1];
     });
 
-    xScale.domain(d3.extent(data, d => parseDate(d[0])));
-    yScale.domain([0, d3.max(data, d => d[1])]);
+    xScale.domain(d3.extent(data, d => parseDate(d[0]))).nice();
+    yScale.domain([0, d3.max(data, d => d[1])]).nice();
 
     const barWidth = width / data.length;
 
