@@ -8,7 +8,7 @@ const height = 400 - margin.top - margin.bottom;
 const parseDate = d3.isoParse;
 
 const xScale = d3.scaleTime().rangeRound([0, width]);
-const yScale = d3.scaleLinear().range([height, 0]);
+const yScale = d3.scaleLinear().rangeRound([height, 0]);
 
 const xAxis = d3.axisBottom(xScale).ticks(null).tickSize(10, 10, 0);
 const yAxis = d3.axisLeft(yScale).ticks(null).tickSize(10, 10, 0);
