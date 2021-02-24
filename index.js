@@ -8,8 +8,6 @@ const height = 400 - margin.top - margin.bottom;
 const parseDate = d3.isoParse;
 
 const xScale = d3.scaleTime().rangeRound([0, width]);
-// const xScale = d3.scaleTime().range([0, width]);
-//--> I see no difference between rangeRound() and range()
 const yScale = d3.scaleLinear().range([height, 0]);
 
 const xAxis = d3.axisBottom(xScale).ticks(null).tickSize(10, 10, 0);
