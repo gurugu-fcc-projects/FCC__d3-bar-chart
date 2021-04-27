@@ -72,10 +72,6 @@ const hideTooltip = () => tooltip.style("opacity", 0);
 //--> Load data
 d3.json(dataUrl)
   .then(({ data }) => {
-    data.forEach(d => {
-      d[1] = +d[1];
-    });
-
     xScale.domain(d3.extent(data, d => parseDate(d[0]))).nice();
     yScale.domain([0, d3.max(data, d => d[1])]).nice();
 
