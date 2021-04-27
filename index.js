@@ -1,7 +1,7 @@
 const dataUrl =
   "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json";
 
-const margin = { top: 20, right: 20, bottom: 50, left: 60 };
+const margin = { top: 20, right: 20, bottom: 50, left: 50 };
 const width = 800 - margin.left - margin.right;
 const height = 400 - margin.top - margin.bottom;
 
@@ -49,7 +49,7 @@ svg
 
 //--> Add tooltip
 const tooltip = d3
-  .select(".chart")
+  .select("body")
   .append("div")
   .attr("id", "tooltip")
   .style("opacity", 0)
@@ -61,9 +61,8 @@ const showTooltip = d => {
   tooltip
     .attr("data-date", d[0])
     .style("opacity", 0.9)
-    .style("left", `${d3.event.pageX}px`)
-    .style("top", `${height - 130}px`)
-    .style("transform", "translateX(-80px)")
+    .style("left", `${d3.event.pageX + 20}px`)
+    .style("top", `${d3.event.pageY}px`)
     .html(`<div>${d[0]}</div><div>$${d[1]} billions</div>`);
 };
 
