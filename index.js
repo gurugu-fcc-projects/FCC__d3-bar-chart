@@ -63,11 +63,15 @@ const showTooltip = d => {
     .style("opacity", 0.9)
     .style("left", `${d3.event.pageX + 20}px`)
     .style("top", `${d3.event.pageY}px`)
-    .html(`<div>${d[0]}</div><div>$${d[1]} billions</div>`);
+    .html(`<div>${d[0]}</div><div>$${d[1]} billions</div>`)
+    .transition()
+    .duration(200)
+    .style("opacity", 0.9);
 };
 
 //--> Hide tooltip
-const hideTooltip = () => tooltip.style("opacity", 0);
+const hideTooltip = () =>
+  tooltip.transition().duration(200).style("opacity", 0);
 
 //--> Load data
 d3.json(dataUrl)
